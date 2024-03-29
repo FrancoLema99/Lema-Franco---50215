@@ -1,0 +1,74 @@
+{% extends 'aplicacionFinal/index.html' %}
+
+{% load static %}
+
+
+
+    
+{% block imagen %}
+    <div class="image"
+            style="background-image: url('{% static 'assets/img/acerca_de.png' %}')">
+            <h1 style="text-align: center;">Acerca de mi...</h1>
+            <h3 style="margin-left: 20px; margin-right: 20px;"><br>Me llamo Franco Lema y tengo 24 años. Soy estudiante del CBC de la UBA para ingresar a la carrera de Ingeniería en Informática. Además de estar haciendo el curso de programación en Python en Coderhouse, tengo un certificado introductorio en Ciencias de Datos que hice en la Facultad de Ingeniería de Lomas de Zamora, adquiriendo conocimientos básicos en SQL, Pandas, Numpy y PostgreSQL. También soy autodidacta, y tengo conocimientos en Automatización en Procesos Robóticos (RPA) en lenguajes como VBA, Google Apps Script y UiPath.</h3>
+    </div>
+    
+{% endblock imagen %}
+{% block titulo %}
+{% endblock titulo %}
+
+
+
+{% block header %}
+{% endblock header %}
+
+{% block subtitulo %}
+{% endblock subtitulo %}
+
+
+{% block contenido %}
+<footer class="footer footer-big footer-color-black" data-color="black">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-sm-3">
+                <div class="info">
+                    <h5 class="title">Company</h5>
+                    <nav>
+                        <ul>
+                            <li> <a href="{% url 'home' %}">Home</a></li> 
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-md-offset-1 col-sm-3">
+
+            </div>
+
+            <div class="col-md-3 col-sm-3">
+
+            </div>
+
+            <div class="col-md-2 col-md-offset-1 col-sm-3">
+                <div class="info">
+                    <h5 class="title">Seguime en:</h5>
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="https://www.linkedin.com/in/franco-omar-lema/" target="_blank" class="btn btn-social btn-linkedin btn-simple">
+                                    <i class="fa fa-linkedin"></i> LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://github.com/FrancoLema99" target="_blank" class="btn btn-social btn-github btn-simple">
+                                    <i class="fa fa-github"></i> GitHub
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+{% endblock contenido %}

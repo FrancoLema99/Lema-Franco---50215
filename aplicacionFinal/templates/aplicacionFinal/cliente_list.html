@@ -1,0 +1,74 @@
+{% extends 'aplicacionFinal/index.html' %}
+
+{% block titulo %}
+
+    <h1 class="title-modern">CLIENTES</h1>
+    <h3>Listado de Clientes</h3>
+    
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+    
+    <table>
+    <tr>
+        <td width="200"><h2>Lista de Clientes</h2></td>
+        <td>
+            <a
+            href="{% url 'cliente_create' %}"
+            class="btn btn-primary btn-sm">
+            <i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+
+
+    <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Mail</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>    
+    </thead>
+    <tbody>
+
+    {% for c in cliente_list %} 
+
+        <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.nombre}}</td>
+            <td>{{c.apellido}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.telefono}}</td>
+    
+
+            <td>
+                <a
+                  href="{% url 'cliente_update' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'cliente_delete' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>  
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table> 
+
+
+
+{% endblock contenido %}

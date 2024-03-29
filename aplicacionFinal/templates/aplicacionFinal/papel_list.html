@@ -1,0 +1,73 @@
+{% extends 'aplicacionFinal/index.html' %}
+
+{% block titulo %}
+
+    <h1 class="title-modern">PAPEL</h1>
+    <h3>Listado de Papeles</h3>
+    
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+    
+    <table>
+    <tr>
+        <td width="200"><h2>Lista de Papeles</h2></td>
+        <td>
+            <a
+            href="{% url 'productos_papel_create' %}"
+            class="btn btn-primary btn-sm">
+            <i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td> 
+        </td>       
+    </tr>
+</table>
+
+
+
+    <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Tipo de papel</th>
+            <th>Tamaño</th>
+            <th>Gramaje</th>
+            <th>Stock(Especificar)</th>
+            <th>Acciones</th>
+        </tr>    
+    </thead>
+    <tbody>
+
+    {% for p in papel_list %} 
+
+        <tr>
+            <td>{{p.marca}}</td>
+            <td>{{p.tipo}}</td>
+            <td>{{p.tamanio}}</td>
+            <td>{{p.gramaje}}</td>
+            <td>{{p.stock}}</td>
+            <td>
+                <a
+                  href="{% url 'productos_papel_update' p.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'productos_papel_delete' p.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>  
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table> 
+
+
+
+{% endblock contenido %}

@@ -1,0 +1,70 @@
+{% extends 'aplicacionFinal/index.html' %}
+
+{% block titulo %}
+
+    <h1 class="title-modern">TINTAS</h1>
+    <h3>Listado de Tintas</h3>
+    
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+    
+    <table>
+    <tr>
+        <td width="200"><h2>Lista de Tintas</h2></td>
+        <td>
+            <a
+            href="{% url 'productos_tinta_create' %}"
+            class="btn btn-primary btn-sm">
+            <i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+
+
+    <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Marca</th>
+            <th>Tipo de tinta</th>
+            <th>Color</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>    
+    </thead>
+    <tbody>
+
+    {% for t in tinta_list %} 
+
+        <tr>
+            <td>{{t.marca}}</td>
+            <td>{{t.tipo_tinta}}</td>
+            <td>{{t.color}}</td>
+            <td>{{t.stock}}</td>
+            <td>
+                <a
+                  href="{% url 'productos_tinta_update' t.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'productos_tinta_delete' t.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>  
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table> 
+
+
+
+{% endblock contenido %}

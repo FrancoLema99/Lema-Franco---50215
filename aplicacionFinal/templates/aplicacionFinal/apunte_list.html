@@ -1,0 +1,69 @@
+{% extends 'aplicacionFinal/index.html' %}
+
+{% block titulo %}
+
+    <h1 class="title-modern">APUNTES</h1>
+    <h3>Listado de Apuntes</h3>
+    
+
+{% endblock titulo %}
+
+
+{% block contenido %}
+    
+    <table>
+    <tr>
+        <td width="200"><h2>Lista de Apuntess</h2></td>
+        <td>
+            <a
+            href="{% url 'productos_apunte_create' %}"
+            class="btn btn-primary btn-sm">
+            <i class="fa fa-plus fa-lg" title="Crear"> </i>
+            </a>
+        </td>        
+    </tr>
+</table>
+
+
+
+    <table class = "table table-striped">
+    <thead>
+        <tr>
+            <th>Materia</th>
+            <th>Cátedra</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+        </tr>    
+    </thead>
+    <tbody>
+
+    {% for a in apunte_list %} 
+
+        <tr>
+            <td>{{a.materia}}</td>
+            <td>{{a.catedra}}</td>
+            <td>{{a.stock}}</td>
+    
+            <td>
+                <a
+                  href="{% url 'productos_apunte_update' a.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'productos_apunte_delete' a.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>  
+        </tr>
+
+    {% endfor %}
+    </tbody>
+</table> 
+
+
+
+{% endblock contenido %}
