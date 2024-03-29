@@ -2,6 +2,8 @@ Proyecto: Proyecto Final del curso de Python - Comisión 50215
 Autor: Franco Lema
 Versión: 1.0
 
+Link a video: https://youtu.be/2kLlZbTdUR4
+
 Panel de Administración:
 
 Usuario administrador: fr@n
